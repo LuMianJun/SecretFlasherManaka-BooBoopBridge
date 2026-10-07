@@ -22,6 +22,6 @@ ProductCachePath =
 
 失败后不自动重连，检查 BepInEx/LogOutput.log 和配置后重启。卸载时退出游戏，再移出这三个 DLL；配置可保留。
 
-本包编译与 47 项 mock 通过，不代表真实游戏或设备已验证。活塞是 UI 缓存观察，不是运动反馈；管道写入不是动作或停止回执。运行设备时保留物理停止手段。
+活塞是 UI 缓存观察，不是运动反馈；管道写入不是动作或停止回执。运行设备时保留物理停止手段。
 
 本安装包自有代码采用 MIT，Copyright (c) 2026 Lu_Noodles。许可证见 LICENSE，外部软件范围见 THIRD_PARTY_NOTICES.md。

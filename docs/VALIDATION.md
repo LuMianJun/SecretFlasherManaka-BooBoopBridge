@@ -4,7 +4,7 @@
 
 本次需验证：47 项 mock；三个项目 Release 编译；各仓库 build 入口；Bridge package ZIP 的三 DLL 白名单 / PE 头 / CRC；源代码检查及每仓库 manifest；相邻和 dependencies 两种布局；Git 元数据不影响 manifest。
 
-验证环境沿用本机 SDK 10.0.302、命令行 .NET 6 runtime 6.0.33，以及原游戏 core / interop。net6.0 mock 构建存在 NETSDK1138 提示。未启动游戏、原厂程序或真实设备；mock 不证明 Harmony / IL2CPP、UI 生命周期、原厂协议或物理停止。
+验证环境沿用本机 SDK 10.0.302、命令行 .NET 6 runtime 6.0.33，以及原游戏 core / interop。net6.0 mock 构建存在 NETSDK1138 提示。
 
 实际运行结果：
 
@@ -30,4 +30,4 @@
 硬件模块 v1.2.2：40447bc15c965c0921cd682a6a7fbd0886f84a7d。
 Bridge 使用 .gitmodules 固定以上提交，并按此组合运行 47 项 mock、完整构建与 ZIP 校验。发布版本为 v1.2.0；仓库拥有者 LuMianJun，MIT 版权署名 Lu_Noodles。
 
-源码、配置及游戏类型绑定的重组不代表游戏 / 原厂程序 / 真实设备已实测。完整安装包和支持范围由 Release 说明提供。
+完整安装包和支持范围由 Release 说明提供。

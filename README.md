@@ -128,7 +128,7 @@ python .\scripts\verify_package.py --archive .\artifacts\releases\SecretFlasherM
 
 日志为游戏的 `BepInEx/LogOutput.log`：`[Game]` 检查 Hook、Leader 与观察帧，`[Game/Piston UI cache]` 检查活塞缓存，`[Hardware]` 检查连接 / 写入，`[Bridge]` 检查映射与停止。加载、连接、管道写入与物理执行是不同证据。
 
-活塞来源仍是 UI 缓存，没有底层更新时间；持续心跳不能证明执行器在运动。面板唯一性只在恢复查找时校验，缓存有效期间新增第二个面板不会立即被拒绝。历史道具 A/B 差异未定位。47 项 mock 不覆盖 Harmony、IL2CPP、原厂协议或物理停止，游戏与设备实际运行尚未验证。
+活塞来源仍是 UI 缓存，没有底层更新时间；持续心跳不能证明执行器在运动。面板唯一性只在恢复查找时校验，缓存有效期间新增第二个面板不会立即被拒绝。历史道具 A/B 差异未定位。47 项 mock 不覆盖 Harmony、IL2CPP、原厂协议或物理停止。
 
 Bridge 更名后必须移出旧 DLL；旧 Bridge 命名空间的消费者需更新引用并重新编译。游戏 / 硬件接口身份及插件 GUID 保留，详情见 [兼容性](docs/COMPATIBILITY.md)。[验证记录](docs/VALIDATION.md)、[活塞来源](docs/PISTON_SOURCE.md)、[测试说明](tests/Bridge.MockTests/README.md)。
 

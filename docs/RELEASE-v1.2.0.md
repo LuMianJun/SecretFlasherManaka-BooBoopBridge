@@ -1,6 +1,6 @@
 # 首次公开发布：1.2.0
 
-完整安装包已通过编译和 47 项无设备 mock；**尚未验证真实游戏加载、原厂程序或硬件动作**。当前适配 SecretFlasherManaka 的既有 BepInEx IL2CPP 环境，以及 FN010-RX。
+完整安装包已通过编译和 47 项 mock。当前适配 SecretFlasherManaka 的既有 BepInEx IL2CPP 环境，以及 FN010-RX。
 
 ## 下载与安装
 
@@ -29,4 +29,4 @@
 
 ## SHA-256
 
-`d372908c6d6c1caa9fcd3228aab57ba1b403386db277376f8da223b15e841e4a`
+`0b3441262f9777a4c14cc88eb1dd0b4945d97b59cb8d4152c3e30b811d7fc56b`

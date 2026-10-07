@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <LangVersion>10.0</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <PlatformTarget>x64</PlatformTarget>
+    <AssemblyName>Bridge.MockTests</AssemblyName>
+    <!-- Prefer the bridge repository's submodules; also support the delivered sibling layout. -->
+    <GameSignalsProject Condition="'$(GameSignalsProject)' == '' and Exists('$(MSBuildThisFileDirectory)../../dependencies/SecretFlasherManaka-ForEveryThing/SecretFlasherManaka.ForEveryThing.csproj')">$(MSBuildThisFileDirectory)../../dependencies/SecretFlasherManaka-ForEveryThing/SecretFlasherManaka.ForEveryThing.csproj</GameSignalsProject>
+    <GameSignalsProject Condition="'$(GameSignalsProject)' == ''">$(MSBuildThisFileDirectory)../../../SecretFlasherManaka-ForEveryThing/SecretFlasherManaka.ForEveryThing.csproj</GameSignalsProject>
+    <HardwareControlProject Condition="'$(HardwareControlProject)' == '' and Exists('$(MSBuildThisFileDirectory)../../dependencies/BooBoopControl/BooBoopControl.csproj')">$(MSBuildThisFileDirectory)../../dependencies/BooBoopControl/BooBoopControl.csproj</HardwareControlProject>
+    <HardwareControlProject Condition="'$(HardwareControlProject)' == ''">$(MSBuildThisFileDirectory)../../../BooBoopControl/BooBoopControl.csproj</HardwareControlProject>
+    <MotionEpochsSource>$([System.IO.Path]::GetDirectoryName('$(HardwareControlProject)'))/src/MotionEpochs.cs</MotionEpochsSource>
+    <PistonSignalsSource>$([System.IO.Path]::GetDirectoryName('$(GameSignalsProject)'))/src/PistonStateHub.cs</PistonSignalsSource>
+    <GameSignalsSource>$([System.IO.Path]::GetDirectoryName('$(GameSignalsProject)'))/src/GameStateHub.cs</GameSignalsSource>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- Deliberately do not reference the game or bridge project, Unity, BepInEx, or the host EXE. -->
+    <Compile Include="$(GameSignalsSource)" Link="Production/GameStateHub.cs" />
+    <Compile Include="$(PistonSignalsSource)" Link="Production/PistonStateHub.cs" />
+    <Compile Include="$(MotionEpochsSource)" Link="Production/MotionEpochs.cs" />
+    <Compile Include="../../src/BooBoopGameSession.cs" Link="Production/BooBoopGameSession.cs" />
+    <ProjectReference Include="$(HardwareControlProject)" />
+  </ItemGroup>
+  <Target Name="CheckMockSources" BeforeTargets="PrepareForBuild">
+    <Error Condition="!Exists('$(GameSignalsSource)')" Text="Cannot find GameStateHub.cs. Set GameSignalsProject to the absolute path of SecretFlasherManaka.ForEveryThing.csproj; only its pure CLR source is compiled by these tests." />
+    <Error Condition="!Exists('$(PistonSignalsSource)')" Text="Cannot find PistonStateHub.cs. Set GameSignalsProject to the project containing both pure CLR state hubs." />
+    <Error Condition="!Exists('$(MotionEpochsSource)')" Text="Cannot find MotionEpochs.cs. Set HardwareControlProject to the project containing its pure CLR queue bookkeeping source." />
+    <Error Condition="!Exists('$(HardwareControlProject)')" Text="Cannot find BooBoopControl.csproj. Set HardwareControlProject to its absolute path." />
+  </Target>
+</Project>

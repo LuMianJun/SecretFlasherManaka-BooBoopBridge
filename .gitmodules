@@ -1,0 +1,6 @@
+[submodule "dependencies/SecretFlasherManaka-ForEveryThing"]
+	path = dependencies/SecretFlasherManaka-ForEveryThing
+	url = https://github.com/LuMianJun/SecretFlasherManaka-ForEveryThing.git
+[submodule "dependencies/BooBoopControl"]
+	path = dependencies/BooBoopControl
+	url = https://github.com/LuMianJun/BooBoopControl.git
